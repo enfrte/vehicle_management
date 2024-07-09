@@ -11,9 +11,9 @@ Checklist.
 NEXT:
 
 Types of maintanence
-	Time - inspection_date, reminder_days (Date of upcoming inspection)
-	Distance - last_distance_clocked, reminder_distance (Distance logged when part was maintained)
-	Expirary - expirary_date (When things expire, like fire extingushers)
+* Time - inspection_date, reminder_days (Date of upcoming inspection)
+* Distance - last_distance_clocked, reminder_distance (Distance logged when part was maintained)
+* Expirary - expirary_date (When things expire, like fire extingushers)
 	
 A vehicle part can belong to one or more of the types of maintenance. 
 
