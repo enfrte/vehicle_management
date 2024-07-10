@@ -10,13 +10,13 @@ use App\VehicleManagement\Models\BasicVehicle;
 
 class VehicleMaintenance 
 {
-    private $pdo;
+    // private $pdo;
     private $id;
     private $vehicleType;
 
     public function __construct(BasicVehicle $vehicle)
     {
-        $this->pdo = DatabaseConnection::getInstance()->getConnection();
+        // $this->pdo = DatabaseConnection::getInstance()->getConnection();
         $this->id = $vehicle->getId();
         $this->vehicleType = $vehicle->getVehicleType();
     }
