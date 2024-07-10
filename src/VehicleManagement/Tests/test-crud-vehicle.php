@@ -12,22 +12,21 @@ ini_set('display_errors', 1);
 
 // Create
 $vehicleModel = new BasicVehicle();
-$vehicleModel->setProperties("Toyota 1", "Corolla 1", 2023, VehicleTypeConfigurator::VAN);
+$vehicleModel->setProperties("Transit 1", "Ford 1", 2023, VehicleTypeConfigurator::VAN);
 $vehicleModel->save();
 
 // Read
 $newId = $vehicleModel->getId();
 $newVehicleModel = new BasicVehicle($newId);
-
-echo '<pre>';
-echo $newVehicleModel->getDescription() . "\n";
+echo "<pre>Read:\n";
+echo $vehicleModel->getDescription() . "\n";
 print_r($newVehicleModel->getMaintenanceSchedule());
+echo '</pre>';
 
 // Update
-$newVehicleModel->setProperties("Toyota 2", "Corolla 2", 2024, VehicleTypeConfigurator::VAN);
+echo "<pre>Update:\n";
+$newVehicleModel->setProperties("Transit 2", "Ford 2", 2024, VehicleTypeConfigurator::VAN);
 $newVehicleModel->save();
-
-echo 'Updated vehicle:' . "\n";
 echo $newVehicleModel->getDescription() . "\n";
 print_r($newVehicleModel->getMaintenanceSchedule());
 echo '</pre>';

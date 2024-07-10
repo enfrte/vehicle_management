@@ -22,20 +22,20 @@ class VehicleTypeConfigurator
         // Add more configurations as needed
     ];
 
-    public static function configure(Vehicle $vehicle, int $vehicleType): Vehicle
-    {
-        if (!isset(self::$decoratorConfigs[$vehicleType])) {
-            throw new \InvalidArgumentException("Unknown vehicle type: $vehicleType");
-        }
+    // public static function configure(Vehicle $vehicle, int $vehicleType): Vehicle
+    // {
+    //     if (!isset(self::$decoratorConfigs[$vehicleType])) {
+    //         throw new \InvalidArgumentException("Unknown vehicle type: $vehicleType");
+    //     }
 
-        $decoratedVehicle = $vehicle;
+    //     $decoratedVehicle = $vehicle;
         
-        foreach (self::$decoratorConfigs[$vehicleType] as $decoratorClass) {
-            $decoratedVehicle = new $decoratorClass($decoratedVehicle);
-        }
+    //     foreach (self::$decoratorConfigs[$vehicleType] as $decoratorClass) {
+    //         $decoratedVehicle = new $decoratorClass($decoratedVehicle);
+    //     }
 
-        return $decoratedVehicle;
-    }
+    //     return $decoratedVehicle;
+    // }
 
     public static function getDecoratorsForType(int $vehicleType): array
     {
