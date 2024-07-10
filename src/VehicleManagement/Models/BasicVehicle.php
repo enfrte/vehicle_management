@@ -74,7 +74,7 @@ class BasicVehicle implements Vehicle
     // Maintenance schedule for vehicle based on its type
     public function getMaintenanceSchedule(): array
     {
-        $vehicleMaintenance = new VehicleMaintenance($this->vehicleType);
+        $vehicleMaintenance = new VehicleMaintenance($this);
         return $vehicleMaintenance->getMaintenanceSchedule();
     }
 
