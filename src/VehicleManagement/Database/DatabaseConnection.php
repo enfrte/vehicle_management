@@ -1,6 +1,6 @@
 <?php
 
-namespace VehicleManagement\Database;
+namespace App\VehicleManagement\Database;
 
 use PDO;
 use PDOException;
@@ -12,7 +12,7 @@ class DatabaseConnection
 
     private function __construct()
     {
-        $dbFile = __DIR__ . '/../../vehicle_management.sqlite';
+        $dbFile = __DIR__ . '/../../../vehicle_management.sqlite';
         try {
             $this->pdo = new PDO("sqlite:$dbFile");
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

@@ -1,9 +1,9 @@
 <?php
 
-namespace VehicleManagement\Controllers;
+namespace App\VehicleManagement\Controllers;
 
-use VehicleManagement\Database\DatabaseConnection;
-use VehicleManagement\Models\BasicVehicle;
+use App\VehicleManagement\Database\DatabaseConnection;
+use App\VehicleManagement\Models\BasicVehicle;
 
 class VehicleController
 {

@@ -1,6 +1,6 @@
 <?php 
 
-namespace VehicleManagement\Interfaces;
+namespace App\VehicleManagement\Interfaces;
 
 interface Vehicle {
     public function getDescription();

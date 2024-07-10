@@ -1,10 +1,12 @@
 <?php
 
-namespace VehicleManagement\Config;
+namespace App\VehicleManagement\Config;
 
-use VehicleManagement\Interfaces\Vehicle;
-use VehicleManagement\Decorators\EngineDecorator;
-use VehicleManagement\Decorators\BrakeDecorator;
+use App\VehicleManagement\Interfaces\Vehicle;
+use App\VehicleManagement\Decorators\FireExtinguisherDecorator;
+use App\VehicleManagement\Decorators\BrakeDecorator;
+use App\VehicleManagement\Decorators\TyreDecorator;
+
 // Import other decorators as needed
 
 class VehicleTypeConfigurator
@@ -14,9 +16,9 @@ class VehicleTypeConfigurator
     const VAN = 3;
 
     private static $decoratorConfigs = [
-        self::BUS => [EngineDecorator::class, BrakeDecorator::class],
-        self::LORRY => [EngineDecorator::class, BrakeDecorator::class],
-        self::VAN => [EngineDecorator::class],
+        self::BUS => [FireExtinguisherDecorator::class, BrakeDecorator::class],
+        self::LORRY => [FireExtinguisherDecorator::class, BrakeDecorator::class],
+        self::VAN => [FireExtinguisherDecorator::class, TyreDecorator::class],
         // Add more configurations as needed
     ];
 
@@ -27,6 +29,7 @@ class VehicleTypeConfigurator
         }
 
         $decoratedVehicle = $vehicle;
+        
         foreach (self::$decoratorConfigs[$vehicleType] as $decoratorClass) {
             $decoratedVehicle = new $decoratorClass($decoratedVehicle);
         }

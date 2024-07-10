@@ -1,6 +1,6 @@
 <?php 
 
-namespace VehicleManagement\Decorators;
+namespace App\VehicleManagement\Decorators;
 
 class BrakeDecorator extends VehicleDecorator {
     public function getDescription() {

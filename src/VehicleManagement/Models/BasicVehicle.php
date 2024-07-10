@@ -1,11 +1,11 @@
 <?php
 
-namespace VehicleManagement\Models;
+namespace App\VehicleManagement\Models;
 
 use PDO;
-use VehicleManagement\Interfaces\Vehicle;
-use VehicleManagement\Database\DatabaseConnection;
-use VehicleManagement\Config\VehicleTypeConfigurator;
+use App\VehicleManagement\Interfaces\Vehicle;
+use App\VehicleManagement\Database\DatabaseConnection;
+use App\VehicleManagement\Config\VehicleTypeConfigurator;
 
 class BasicVehicle implements Vehicle
 {
@@ -70,17 +70,18 @@ class BasicVehicle implements Vehicle
         return "Vehicle: {$this->year}, {$this->make}, {$this->model}, {$this->vehicleType}";
     }
     
+    // Maintenance schedule for vehicle based on its type
     public function getMaintenanceSchedule(): array
     {
-        $schedule = [];
-        $decorators = VehicleTypeConfigurator::getDecoratorsForType($this->vehicleType);
+        $maintenanceSchedule = [];
+        $decorators = VehicleTypeConfigurator::getDecoratorsForType($this->vehicleType); // Load decorators based on vehicle type
 
         foreach ($decorators as $decoratorClass) {
             $decorator = new $decoratorClass($this);
-            $schedule = array_merge($schedule, $decorator->getMaintenanceSchedule());
+            $maintenanceSchedule = array_merge($maintenanceSchedule, $decorator->getMaintenanceSchedule());
         }
 
-        return $schedule;
+        return $maintenanceSchedule;
     }
 
     public function getId()

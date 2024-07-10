@@ -1,8 +1,8 @@
 <?php 
 
-namespace VehicleManagement\Decorators;
+namespace App\VehicleManagement\Decorators;
 
-use VehicleManagement\Interfaces\Vehicle;
+use App\VehicleManagement\Interfaces\Vehicle;
 
 abstract class VehicleDecorator implements Vehicle {
     protected $vehicle;

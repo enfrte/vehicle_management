@@ -2,7 +2,7 @@
     "name": "me/vehicle_management",
     "autoload": {
         "psr-4": {
-            "VehicleManagement\\": "src/"
+            "App\\": "src/"
         }
     },
     "require-dev": {

@@ -3,7 +3,7 @@
 session_start();
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use VehicleManagement\Controllers\VehicleController;
+use App\VehicleManagement\Controllers\VehicleController;
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
