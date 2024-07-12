@@ -9,10 +9,9 @@ class BrakeDecorator extends VehicleDecorator {
 
     public function getMaintenanceSchedule(): array
     {
-        // $schedule = parent::getMaintenanceSchedule();
         // Todo: Query db for maintenance schedule 
-        
-        $schedule[] = "Brake inspection every 10000 miles";
+        $schedule = parent::getMaintenanceSchedule();
+        $schedule[] = ["Brake inspection every 10,000 miles. "];
         return $schedule;
     }
 }

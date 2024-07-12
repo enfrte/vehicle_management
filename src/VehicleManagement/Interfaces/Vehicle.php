@@ -4,5 +4,5 @@ namespace App\VehicleManagement\Interfaces;
 
 interface Vehicle {
     public function getDescription();
-    public function getMaintenanceSchedule();
+    public function getMaintenanceSchedule(): array;
 }

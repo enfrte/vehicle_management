@@ -16,6 +16,7 @@ class BasicVehicle implements Vehicle
     private $year;
     private $pdo;
     private $vehicleType;
+    public $schedule;
 
     public function __construct($id = null)
     {
@@ -70,26 +71,23 @@ class BasicVehicle implements Vehicle
     {
         return "Vehicle: {$this->year}, {$this->make}, {$this->model}, {$this->vehicleType}";
     }
-    
-    // Maintenance schedule for vehicle based on its type
-    public function getMaintenanceSchedule(): array
-    {
-        $vehicleMaintenance = new VehicleMaintenance($this);
-        return $vehicleMaintenance->getMaintenanceSchedule();
+
+
+    public function getMaintenanceSchedule(): array {
+        return [['Basic schedule. ']];
     }
 
-    // public function getMaintenanceSchedule(): array
-    // {
-    //     $maintenanceSchedule = [];
-    //     $decorators = VehicleTypeConfigurator::getDecoratorsForType($this->vehicleType); // Load decorators based on vehicle type
+    public function getDecoratedVehicle()
+    {
+        $decorators = VehicleTypeConfigurator::getDecoratorsForType($this->vehicleType);
+        $vehicle = $this; // new BasicVehicle($this->id);
 
-    //     foreach ($decorators as $decoratorClass) {
-    //         $decorator = new $decoratorClass($this);
-    //         $maintenanceSchedule = array_merge($maintenanceSchedule, $decorator->getMaintenanceSchedule());
-    //     }
+        foreach ($decorators as $decoratorClass) {
+            $vehicle = new $decoratorClass($vehicle);
+        }
 
-    //     return $maintenanceSchedule;
-    // }
+        return $vehicle;
+    }
 
     public function getId()
     {
@@ -145,5 +143,5 @@ class BasicVehicle implements Vehicle
     {
         return $this->vehicleType;
     }
-
+    
 }

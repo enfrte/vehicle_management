@@ -7,10 +7,10 @@ class TyreDecorator extends VehicleDecorator {
     //     return $this->vehicle->getDescription() . ", with tyres";
     // }
     
-    public function getMaintenanceSchedule() {
+    public function getMaintenanceSchedule(): array {
         // $schedule = parent::getMaintenanceSchedule();
-        
-        $schedule[] = "Tyre check every 10000 miles";
+        $schedule = parent::getMaintenanceSchedule();
+        $schedule[] = ["Tyre check every 10000 miles. "];
         return $schedule;
     }
     

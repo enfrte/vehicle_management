@@ -15,7 +15,7 @@ abstract class VehicleDecorator implements Vehicle {
         return $this->vehicle->getDescription();
     }
     
-    public function getMaintenanceSchedule() {
+    public function getMaintenanceSchedule(): array {
         return $this->vehicle->getMaintenanceSchedule();
     }
 }

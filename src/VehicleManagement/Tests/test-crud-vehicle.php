@@ -20,7 +20,8 @@ $newId = $vehicleModel->getId();
 $newVehicleModel = new BasicVehicle($newId);
 echo "<pre>Read:\n";
 echo $vehicleModel->getDescription() . "\n";
-print_r($newVehicleModel->getMaintenanceSchedule());
+$decoratedVehicle = $newVehicleModel->getDecoratedVehicle();
+print_r($decoratedVehicle->getMaintenanceSchedule()) . "\n";
 echo '</pre>';
 
 // Update
@@ -28,7 +29,8 @@ echo "<pre>Update:\n";
 $newVehicleModel->setProperties("Transit 2", "Ford 2", 2024, VehicleTypeConfigurator::VAN);
 $newVehicleModel->save();
 echo $newVehicleModel->getDescription() . "\n";
-print_r($newVehicleModel->getMaintenanceSchedule());
+$decoratedVehicle = $newVehicleModel->getDecoratedVehicle();
+print_r($decoratedVehicle->getMaintenanceSchedule()) . "\n";
 echo '</pre>';
 
 // Delete

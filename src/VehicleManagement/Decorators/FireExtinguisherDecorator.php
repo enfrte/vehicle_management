@@ -7,10 +7,10 @@ class FireExtinguisherDecorator extends VehicleDecorator {
     //     return $this->vehicle->getDescription() . ", with fire extinguisher.";
     // }
     
-    public function getMaintenanceSchedule() {
+    public function getMaintenanceSchedule(): array {
         // $schedule = parent::getMaintenanceSchedule();
-        
-        $schedule[] = "Check fire extinguisher expiration date.";
+        $schedule = parent::getMaintenanceSchedule();
+        $schedule[] = ["Check fire extinguisher expiration date. "];
         return $schedule;
     }
     
